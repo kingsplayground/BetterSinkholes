@@ -90,10 +90,13 @@
     <Compile Include="BetterSinkholes\Config.cs" />
     <Compile Include="BetterSinkholes\ImproveThoseSinkholesBaby.cs" />
     <Compile Include="BetterSinkholes.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BetterSinkholes\Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
