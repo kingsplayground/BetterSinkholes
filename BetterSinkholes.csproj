@@ -87,8 +87,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
-    <Compile Include="ImproveThoseSinkholesBaby.cs" />
+    <Compile Include="BetterSinkholes\Config.cs" />
+    <Compile Include="BetterSinkholes\ImproveThoseSinkholesBaby.cs" />
     <Compile Include="BetterSinkholes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

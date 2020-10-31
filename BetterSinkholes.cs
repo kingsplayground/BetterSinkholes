@@ -8,7 +8,7 @@
 * |               |___/                     |___/ |___/                              |
 * |                                                                                  |
 * +==================================================================================+
-* | Better Sink Holes Redux                                                          |
+* | Better Sinkholes Redux                                                          |
 * | Maintained by Thomasjosif for King's Playground, written by Blackruby            |
 * |                                                                                  |
 * | https://kingsplayground.fun                                                      |
@@ -43,7 +43,7 @@ namespace BetterSinkholes
     public class BetterSinkholes : Plugin<Config>
     {
         public override string Author { get; } = "Thomasjosif, origially written by Blackruby";
-        public override string Name { get; } = "BetterSinkHoles Redux";
+        public override string Name { get; } = "BetterSinkholes Redux";
         public override string Prefix { get; } = "BSH Redux";
         public override Version Version { get; } = new Version(3, 0, 0);
         public override Version RequiredExiledVersion { get; } = new Version(2, 0, 0);
