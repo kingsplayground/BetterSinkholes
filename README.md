@@ -1,17 +1,15 @@
-# BetterSinkholes
+# BetterSinkholes Redux
 
-BetterSinkholes is a plugin that makes **sinkhole environmental hazards** (found in Light Containment Zone - IX Intersections) more realistic and  similar to SCP: Containment Breach. With the use of this plugin, players who walk into sinkholes fall into the pocket dimension *and may never return*.
+BetterSinkholes is a plugin that makes **sinkhole environmental hazards** (found in Light Containment Zone - IX Intersections) more realistic and similar to SCP: Containment Breach. With the use of this plugin, players who walk into sinkholes fall into the pocket dimension *and may never return*.
 
 ## Requirements
 - This plugin uses [EXILED](https://github.com/galaxy119/EXILED/).
 - Make sure the config option in `config_gameplay.txt` called `sinkhole_spawn_chance` is set to higher than 0.
 
-Note: **BetterSinkholes 2.0+ requires Exiled 2.0+ and SCP:SL 10.0+!**
-
 ## Releases
-You can find the latest release [here](https://github.com/rby-blackruby/BetterSinkholes/releases).
+You can find the latest release [here](https://github.com/kingsplayground/BetterSinkholes/releases).
 
-## Configs (SCP:SL 10.0+)
+## Configs
 | Config option | Value type | Default value | Description |
 | --- | --- | --- | --- |
 | `IsEnabled` | bool | true | Enables the BetterSinkholes plugin. Set it to false to disable it. |
@@ -20,6 +18,5 @@ You can find the latest release [here](https://github.com/rby-blackruby/BetterSi
 | `TeleportMessage` | string | '' | Set it to '' to disable sinkhole teleport message. Can use Unity's RichText. |
 | `TeleportMessageDuration` | ushort | 0 | Duration of the sinkhole teleport message, when teleport message is not null. |
 
-## Thank you!
-
-Thank you for being interested in this plugin and I wish you a great time using it! If you have any ideas/problems feel free to contact me on discord: `blackruby#9851`
+## What happened to the original plugin?
+The original plugin was made by [Blackruby](https://github.com/rby-blackruby/BetterSinkholes) but was unfortunately discontinuted by him. This repo will be supported by myself (Thomasjosif) and you can expect any further updates and support to stem from here. Please do not message blackruby as he is no longer willing to support the game. 
