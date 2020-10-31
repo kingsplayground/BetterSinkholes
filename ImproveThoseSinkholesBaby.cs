@@ -16,7 +16,7 @@ namespace BetterSinkholes
             // Check if player has a connection to the server.
             if (!NetworkServer.active) return false;
 
-            global::PlayerEffectsController componentInParent = player.GetComponentInParent<global::PlayerEffectsController>();
+            PlayerEffectsController componentInParent = player.GetComponentInParent<PlayerEffectsController>();
             if(componentInParent == null) return false;
 
             componentInParent.GetEffect<CustomPlayerEffects.SinkHole>();
@@ -24,7 +24,7 @@ namespace BetterSinkholes
             // Check if the player walking into a sinkhole is an SCP or not.
             if(__instance.SCPImmune)
             {
-                global::CharacterClassManager component = player.GetComponent<global::CharacterClassManager>();
+                CharacterClassManager component = player.GetComponent<CharacterClassManager>();
                 if(component == null || component.IsAnyScp()) return false;
             }
 
@@ -33,10 +33,10 @@ namespace BetterSinkholes
             if (ply.IsGodModeEnabled) return false;
 
             // If a player is out of a sinkhole's range.
-            if ((double)Vector3.Distance(player.transform.position, __instance.transform.position) > (double)__instance.DistanceToBeAffected * BetterSinkholes.config.SlowDistance)
+            if (Vector3.Distance(player.transform.position, __instance.transform.position) > (double)__instance.DistanceToBeAffected * BetterSinkholes.config.SlowDistance)
             {
                 // If player doesn't have a sinkhole effect don't remove it.
-                if (player.TryGetComponent<PlayerEffectsController>(out PlayerEffectsController pec))
+                if (player.TryGetComponent(out PlayerEffectsController pec))
                 {
                     CustomPlayerEffects.SinkHole SinkholeEffect = pec.GetEffect<CustomPlayerEffects.SinkHole>();
 
@@ -51,17 +51,17 @@ namespace BetterSinkholes
             }
 
             // Check distance from the sinkhole's center.
-            if ((double)Vector3.Distance(player.transform.position, __instance.transform.position) < (double)__instance.DistanceToBeAffected * BetterSinkholes.config.TeleportDistance)
+            if (Vector3.Distance(player.transform.position, __instance.transform.position) < (double)__instance.DistanceToBeAffected * BetterSinkholes.config.TeleportDistance)
             {
                 // Remove Sinkhole effect once falling into a sinkhole.
                 componentInParent.DisableEffect<CustomPlayerEffects.SinkHole>();
 
                 // Teleport player once walking too close to the center of a sinkhole.
-                ReferenceHub referenceHub = global::ReferenceHub.GetHub(player);
+                ReferenceHub referenceHub = ReferenceHub.GetHub(player);
                 referenceHub.playerMovementSync.OverridePosition(Vector3.down * 1998.5f, 0f, true);
 
                 // Apply corrosion effect.
-                global::PlayerEffectsController playerEffectsController = referenceHub.playerEffectsController;
+                PlayerEffectsController playerEffectsController = referenceHub.playerEffectsController;
                 playerEffectsController.GetEffect<CustomPlayerEffects.Corroding>().IsInPd = true;
                 playerEffectsController.EnableEffect<CustomPlayerEffects.Corroding>(0f, false);
 
