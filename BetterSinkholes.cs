@@ -46,7 +46,7 @@ namespace BetterSinkholes
         public override string Name { get; } = "BetterSinkholes Redux";
         public override string Prefix { get; } = "BSH Redux";
         public override Version Version { get; } = new Version(3, 0, 0);
-        public override Version RequiredExiledVersion { get; } = new Version(2, 0, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(2, 1, 29, 0);
         public static int PatchCount = 0;
         public static Harmony Harmony { set; get; }
         public static Config config;
