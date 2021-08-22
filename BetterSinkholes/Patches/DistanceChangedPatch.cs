@@ -50,7 +50,7 @@ namespace BetterSinkholes.Patches
                 new CodeInstruction(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
                 new CodeInstruction(OpCodes.Stloc_S, ply.LocalIndex),
 
-                // if (Vector3.Distance(ply.Position, this.transform.position) <= BetterSinkholes.Instance.Config.TeleportDistance) goto slowdownCheckLabel;
+                // if (Vector3.Distance(ply.Position, this.transform.position) > BetterSinkholes.Instance.Config.TeleportDistance) goto slowdownCheckLabel;
                 new CodeInstruction(OpCodes.Ldloc_S, ply.LocalIndex),
                 new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(Player), nameof(Player.Position))),
                 new CodeInstruction(OpCodes.Ldarg_0),
