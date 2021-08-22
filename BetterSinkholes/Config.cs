@@ -1,24 +1,43 @@
-﻿using System.ComponentModel;
-using Exiled.API.Interfaces;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Config.cs" company="Build">
+// Copyright (c) Build. All rights reserved.
+// Licensed under the CC BY-SA 3.0 license.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace BetterSinkholes
 {
+    using System.ComponentModel;
+    using Exiled.API.Features;
+    using Exiled.API.Interfaces;
+
+    /// <inheritdoc />
     public class Config : IConfig
     {
-        [Description("Enable/disable BetterSinkholes")]
+        /// <inheritdoc />
         public bool IsEnabled { get; set; } = true;
 
-        [Description("Distance from the center of a sinkhole where you get teleported")]
-        public float TeleportDistance { get; set; } = 0.7f;
+        /// <summary>
+        /// Gets or sets the distance from the center of a sinkhole where a player starts getting slowed.
+        /// </summary>
+        [Description("The distance from the center of a sinkhole where a player starts getting slowed.")]
+        public float SlowDistance { get; set; } = 5.25f;
 
-        [Description("Distance from the center of a sinkhole where you start getting slowed")]
-        public float SlowDistance { get; set; } = 1.15f;
+        /// <summary>
+        /// Gets or sets the distance from the center of a sinkhole where a player gets teleported.
+        /// </summary>
+        [Description("The distance from the center of a sinkhole where a player gets teleported.")]
+        public float TeleportDistance { get; set; } = 2f;
 
-        [Description("Message broadcasted to the player upon falling into a sinkhole. Default: blank")]
-        public string TeleportMessage { get; set; } = "";
-
-        [Description("Broadcasted message duration. Default: 0")]
-        public ushort TeleportMessageDuration { get; set; } = 0;
+        /// <summary>
+        /// Gets or sets the message to show when someone falls into the pocket dimension.
+        /// </summary>
+        [Description("The message to show when someone falls into the pocket dimension.")]
+        public Broadcast TeleportMessage { get; set; } = new Broadcast
+        {
+            Content = "You've fallen into the pocket dimension!",
+            Duration = 5,
+            Show = false,
+        };
     }
-
 }
