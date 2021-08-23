@@ -5,7 +5,7 @@
     <RootNamespace>BetterSinkholes</RootNamespace>
     <AssemblyName>BetterSinkholes</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Authors>Build</Authors>
+    <Authors>Thomasjosif</Authors>
     <Version>4.0.0</Version>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>

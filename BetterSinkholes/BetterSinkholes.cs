@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BetterSinkholes.cs" company="Build">
-// Copyright (c) Build. All rights reserved.
+// <copyright file="BetterSinkholes.cs" company="Thomasjosif">
+// Copyright (c) Thomasjosif. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -29,7 +29,7 @@ namespace BetterSinkholes
         public static BetterSinkholes Instance { get; } = InstanceValue;
 
         /// <inheritdoc />
-        public override string Author { get; } = "Build, origially written by Blackruby";
+        public override string Author { get; } = "Thomasjosif, origially written by Blackruby";
 
         /// <inheritdoc />
         public override string Name { get; } = "BetterSinkholes";
@@ -46,7 +46,7 @@ namespace BetterSinkholes
         /// <inheritdoc />
         public override void OnEnabled()
         {
-            harmony = new Harmony($"build.betterSinkholes.{DateTime.UtcNow.Ticks}");
+            harmony = new Harmony($"thomasjosif.betterSinkholes.{DateTime.UtcNow.Ticks}");
             harmony.PatchAll();
             base.OnEnabled();
         }

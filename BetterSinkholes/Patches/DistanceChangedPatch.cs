@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------
-// <copyright file="DistanceChangedPatch.cs" company="Build">
-// Copyright (c) Build. All rights reserved.
+// <copyright file="DistanceChangedPatch.cs" company="Thomasjosif">
+// Copyright (c) Thomasjosif. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
 // </copyright>
 // -----------------------------------------------------------------------
