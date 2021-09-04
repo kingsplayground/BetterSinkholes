@@ -14,6 +14,9 @@ namespace BetterSinkholes
     /// <inheritdoc />
     public class Config : IConfig
     {
+        private float slowDistance = 5.25f;
+        private float teleportDistance = 2f;
+
         /// <inheritdoc />
         public bool IsEnabled { get; set; } = true;
 
@@ -21,13 +24,21 @@ namespace BetterSinkholes
         /// Gets or sets the distance from the center of a sinkhole where a player starts getting slowed.
         /// </summary>
         [Description("The distance from the center of a sinkhole where a player starts getting slowed.")]
-        public float SlowDistance { get; set; } = 5f;
+        public float SlowDistance
+        {
+            get => slowDistance;
+            set => slowDistance = value * value;
+        }
 
         /// <summary>
         /// Gets or sets the distance from the center of a sinkhole where a player gets teleported.
         /// </summary>
         [Description("The distance from the center of a sinkhole where a player gets teleported.")]
-        public float TeleportDistance { get; set; } = 2f;
+        public float TeleportDistance
+        {
+            get => teleportDistance;
+            set => teleportDistance = value * value;
+        }
 
         /// <summary>
         /// Gets or sets the message to show when someone falls into the pocket dimension.
