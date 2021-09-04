@@ -11,6 +11,7 @@ namespace BetterSinkholes.Patches
     using Exiled.API.Enums;
     using Exiled.API.Features;
     using HarmonyLib;
+    using UnityEngine;
 
     /// <summary>
     /// Patches <see cref="SinkholeEnvironmentalHazard.DistanceChanged"/> to allow players to fall into the pocket dimension.
@@ -18,23 +19,32 @@ namespace BetterSinkholes.Patches
     [HarmonyPatch(typeof(SinkholeEnvironmentalHazard), nameof(SinkholeEnvironmentalHazard.DistanceChanged), typeof(ReferenceHub))]
     internal static class DistanceChangedPatch
     {
+        /// <inheritdoc cref="Config.TeleportDistance" />
+        public static float TeleportDistance { get; set; }
+
+        /// <inheritdoc cref="Config.SlowDistance" />
+        public static float SlowDistance { get; set; }
+
+        /// <inheritdoc cref="Config.TeleportMessage" />
+        public static Broadcast TeleportMessage { get; set; }
+
         private static bool Prefix(SinkholeEnvironmentalHazard __instance, ReferenceHub player)
         {
             Player ply = Player.Get(player);
             if (ply.IsScp && __instance.SCPImmune)
                 return false;
 
-            Config config = BetterSinkholes.Instance.Config;
             float distance = (ply.Position - __instance.transform.position).sqrMagnitude;
-            if (distance <= config.TeleportDistance)
+            if (distance <= TeleportDistance)
             {
+                ply.Position = Vector3.down * -1998.5f;
                 ply.EnableEffect(EffectType.Corroding);
                 ply.DisableEffect(EffectType.SinkHole);
-                ply.Broadcast(config.TeleportMessage);
+                ply.Broadcast(TeleportMessage);
                 return false;
             }
 
-            if (distance <= config.SlowDistance)
+            if (distance <= SlowDistance)
             {
                 ply.EnableEffect(EffectType.SinkHole);
                 return false;

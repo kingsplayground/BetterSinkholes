@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BetterSinkholes.cs" company="Thomasjosif">
+// <copyright file="Plugin.cs" company="Thomasjosif">
 // Copyright (c) Thomasjosif. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
 // </copyright>
@@ -14,19 +14,9 @@ namespace BetterSinkholes
     /// <summary>
     /// The main plugin class.
     /// </summary>
-    public class BetterSinkholes : Plugin<Config>
+    public class Plugin : Plugin<Config>
     {
-        private static readonly BetterSinkholes InstanceValue = new BetterSinkholes();
         private Harmony harmony;
-
-        private BetterSinkholes()
-        {
-        }
-
-        /// <summary>
-        /// Gets the only existing instance of the <see cref="BetterSinkholes"/> class.
-        /// </summary>
-        public static BetterSinkholes Instance { get; } = InstanceValue;
 
         /// <inheritdoc />
         public override string Author { get; } = "Thomasjosif, origially written by Blackruby";
@@ -46,6 +36,7 @@ namespace BetterSinkholes
         /// <inheritdoc />
         public override void OnEnabled()
         {
+            Config.FinalizeConfigs();
             harmony = new Harmony($"thomasjosif.betterSinkholes.{DateTime.UtcNow.Ticks}");
             harmony.PatchAll();
             base.OnEnabled();
